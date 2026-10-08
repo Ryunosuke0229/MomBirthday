@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Birthday Gift for Mom</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         LOGIN SCREEN
+    ========================== -->
+    <div id="loginScreen" class="screen login-screen">
+
+        <div class="login-decoration decoration-top"></div>
+
+        <div class="login-card">
+
+            <div class="small-label">
+                A SPECIAL GIFT
+            </div>
+
+            <div class="ornament">
+                ✦ ───────── ✦
+            </div>
+
+            <h1>お母さんへ</h1>
+
+            <p class="login-subtitle">
+                誕生日プレゼントを用意しました。
+            </p>
+
+            <div class="login-message">
+                <p>
+                    あなたの誕生月/日(XX/XX)と<br>
+                    あなたの息子の誕生月・日(XX/XX)を<br>
+                    それぞれ四ケタとし、入力を行ってください。
+                </p>
+
+                <p class="example">
+                    例：0101
+                </p>
+            </div>
+
+            <div class="input-group">
+
+                <label for="motherBirthday">
+                    お母さんの誕生日
+                </label>
+
+                <input
+                    type="text"
+                    id="motherBirthday"
+                    maxlength="4"
+                    inputmode="numeric"
+                    placeholder="XXXX"
+                >
+
+            </div>
+
+            <div class="input-group">
+
+                <label for="sonBirthday">
+                    息子の誕生日
+                </label>
+
+                <input
+                    type="text"
+                    id="sonBirthday"
+                    maxlength="4"
+                    inputmode="numeric"
+                    placeholder="XXXX"
+                >
+
+            </div>
+
+            <button class="main-button" onclick="checkPassword()">
+                プレゼントを見る
+            </button>
+
+            <p id="loginError" class="error-message"></p>
+
+            <div class="login-bottom">
+                ✦ FOR MOM ✦
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+    <div id="mainContent" class="hidden">
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-pattern"></div>
+
+            <div class="hero-content">
+
+                <p class="hero-small">
+                    A LITTLE GIFT, WITH GRATITUDE
+                </p>
+
+                <div class="hero-symbol">
+                    ✦
+                </div>
+
+                <h1>
+                    Happy Birthday
+                    <span>Mom</span>
+                </h1>
+
+                <p class="hero-text">
+                    今日という日が、素敵な一日になりますように。
+                </p>
+
+                <div class="scroll-guide">
+                    SCROLL DOWN
+                    <span>↓</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MESSAGE -->
+        <section class="message-section">
+
+            <div class="section-inner">
+
+                <div class="section-label">
+                    MESSAGE
+                </div>
+
+                <div class="ornament dark">
+                    ✦ ───── ✦
+                </div>
+
+                <h2>
+                    Dear Mom
+                </h2>
+
+                <div class="message-card">
+
+                    <div class="card-corner top-left"></div>
+                    <div class="card-corner top-right"></div>
+                    <div class="card-corner bottom-left"></div>
+                    <div class="card-corner bottom-right"></div>
+
+                    <p>
+                        お誕生日おめでとう！いつも僕たちを支えてくれて本当にありがとう。シンガポール留学中、大変だった時にまず連絡しようと思ったのはお母さんでした。これからは更に家事をお手伝いします！これからもよろしくお願いします！
+                    </p>
+
+                    <div class="signature">
+                        From your son
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TICKET INTRO -->
+        <section class="ticket-intro">
+
+            <div class="section-inner">
+
+                <div class="section-label light">
+                    GIFT TICKETS
+                </div>
+
+                <h2>
+                    お手伝いチケット
+                </h2>
+
+                <p>
+                    普段なかなか言葉にできない感謝を、<br>
+                    こんな形にしてみました。
+                </p>
+
+                <div class="pattern-line">
+                    ◆　◇　◆　◇　◆
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TICKETS -->
+        <section class="tickets-section">
+
+            <div class="tickets-container">
+
+                <!-- DINNER -->
+                <div class="ticket-card dinner-ticket" id="dinnerTicket">
+
+                    <div class="ticket-header">
+
+                        <span class="ticket-number">
+                            TICKET 01
+                        </span>
+
+                        <span class="ticket-status" id="dinnerStatus">
+                            AVAILABLE
+                        </span>
+
+                    </div>
+
+                    <div class="ticket-symbol">
+                        01
+                    </div>
+
+                    <h3>
+                        お食事チケット
+                    </h3>
+
+                    <div class="ticket-line"></div>
+
+                    <p>
+                        お好きなお食事<br>
+                        （外食・自炊 両方可）を<br>
+                        ごちそういたします。
+                    </p>
+
+                    <button
+                        class="ticket-button"
+                        id="dinnerButton"
+                        onclick="confirmUseTicket('dinner')"
+                    >
+                        チケットを使う
+                    </button>
+
+                    <div class="ticket-footer">
+                        SPECIAL GIFT
+                    </div>
+
+                </div>
+
+
+                <!-- CLEANING -->
+                <div class="ticket-card cleaning-ticket" id="cleaningTicket">
+
+                    <div class="ticket-header">
+
+                        <span class="ticket-number">
+                            TICKET 02
+                        </span>
+
+                        <span class="ticket-status" id="cleaningStatus">
+                            AVAILABLE
+                        </span>
+
+                    </div>
+
+                    <div class="ticket-symbol">
+                        02
+                    </div>
+
+                    <h3>
+                        大掃除チケット
+                    </h3>
+
+                    <div class="ticket-line"></div>
+
+                    <p>
+                        1階＆2階のトイレ掃除や窓ふきなど、<br>
+                        労力が必要となる場合に使用できます。<br>
+                        これは大掃除に入るのかという場合には<br>
+                        お尋ねください。<br>
+                        チケットを使用することなく<br>
+                        お手伝いを行う場合があります。
+                    </p>
+
+                    <button
+                        class="ticket-button"
+                        id="cleaningButton"
+                        onclick="confirmUseTicket('cleaning')"
+                    >
+                        チケットを使う
+                    </button>
+
+                    <div class="ticket-footer">
+                        SPECIAL GIFT
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MASSAGE PASS -->
+        <section class="massage-section">
+
+            <div class="massage-pattern"></div>
+
+            <div class="massage-content">
+
+                <div class="section-label">
+                    SPECIAL PASS
+                </div>
+
+                <div class="pass-card">
+
+                    <div class="pass-top">
+                        <span>
+                            PERSONAL PASS
+                        </span>
+
+                        <span>
+                            NO. 03
+                        </span>
+                    </div>
+
+                    <div class="pass-middle">
+
+                        <div class="pass-icon">
+                            03
+                        </div>
+
+                        <h2>
+                            Massage Pass
+                        </h2>
+
+                        <div class="pass-line"></div>
+
+                        <p>
+                            この画面を見せてくれたら、<br>
+                            息子がマッサージをします。
+                        </p>
+
+                        <p class="pass-note">
+                            このパスは使用済みになりません。<br>
+                            疲れたときにいつでも提示してください。
+                        </p>
+
+                    </div>
+
+                    <div class="pass-bottom">
+                        <span>
+                            VALID ANYTIME
+                        </span>
+
+                        <span>
+                            FOR MOM
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ENDING -->
+        <section class="ending-section">
+
+            <div class="ending-inner">
+
+                <div class="ending-symbol">
+                    ✦
+                </div>
+
+                <p class="ending-small">
+                    THANK YOU, MOM
+                </p>
+
+                <h2>
+                    これからもよろしくお願いします。
+                </h2>
+
+                <p>
+                    いつもありがとう。
+                </p>
+
+                <div class="ending-decoration">
+                    ◆　◇　◆
+                </div>
+
+                <p class="ending-sign">
+                    From your son
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- =========================
+         CONFIRMATION MODAL
+    ========================== -->
+    <div id="confirmModal" class="modal hidden">
+
+        <div class="modal-background"></div>
+
+        <div class="modal-card">
+
+            <div class="modal-symbol">
+                ✦
+            </div>
+
+            <h2>
+                チケットを使用しますか？
+            </h2>
+
+            <p>
+                一度使用すると、<br>
+                このチケットは「使用済み」になります。
+            </p>
+
+            <div class="modal-buttons">
+
+                <button
+                    class="modal-cancel"
+                    onclick="closeModal()"
+                >
+                    キャンセル
+                </button>
+
+                <button
+                    class="modal-confirm"
+                    onclick="useSelectedTicket()"
+                >
+                    使用する
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

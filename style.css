@@ -1,0 +1,1281 @@
+/* =========================================================
+   BASIC
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        "Yu Gothic",
+        "Hiragino Kaku Gothic ProN",
+        "Noto Sans JP",
+        sans-serif;
+
+    color: #3d3028;
+    background: #eee4d3;
+    line-height: 1.8;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.login-screen {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(190, 130, 70, 0.16),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(40, 120, 120, 0.13),
+            transparent 25%
+        ),
+        #e9decb;
+}
+
+.login-screen::before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+
+    border: 1px solid rgba(88, 67, 50, 0.25);
+
+    pointer-events: none;
+}
+
+.login-screen::after {
+    content: "";
+    position: absolute;
+    inset: 28px;
+
+    border: 1px solid rgba(88, 67, 50, 0.12);
+
+    pointer-events: none;
+}
+
+.login-decoration {
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(47, 110, 107, 0.18);
+
+    transform: rotate(45deg);
+}
+
+.decoration-top {
+    top: -250px;
+    right: -180px;
+}
+
+.login-card {
+    width: min(92%, 470px);
+
+    padding: 52px 42px 42px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.72),
+            rgba(245,233,211,0.92)
+        );
+
+    border: 1px solid rgba(99, 73, 50, 0.28);
+
+    box-shadow:
+        0 25px 70px rgba(65, 46, 31, 0.18);
+
+    text-align: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+.small-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #8a684d;
+}
+
+.ornament {
+    margin: 15px 0 20px;
+
+    color: #b7794e;
+
+    font-size: 13px;
+    letter-spacing: 4px;
+}
+
+.login-card h1 {
+    font-family: Georgia, serif;
+
+    font-size: 38px;
+    font-weight: normal;
+
+    letter-spacing: 5px;
+
+    color: #49372c;
+}
+
+.login-subtitle {
+    margin-top: 7px;
+
+    font-size: 14px;
+    color: #806d5e;
+}
+
+.login-message {
+    margin: 30px 0;
+
+    padding: 20px;
+
+    background: rgba(255,255,255,0.4);
+
+    border-top: 1px solid rgba(120, 88, 61, 0.18);
+    border-bottom: 1px solid rgba(120, 88, 61, 0.18);
+}
+
+.login-message p {
+    font-size: 13px;
+}
+
+.login-message .example {
+    margin-top: 8px;
+
+    font-size: 12px;
+
+    color: #ad6e47;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 12px;
+    letter-spacing: 1px;
+
+    color: #695343;
+}
+
+.input-group input {
+    width: 100%;
+
+    padding: 13px 16px;
+
+    border: none;
+    border-bottom: 2px solid #b9a58e;
+
+    background: rgba(255,255,255,0.55);
+
+    text-align: center;
+
+    font-size: 22px;
+    letter-spacing: 7px;
+
+    color: #4b392d;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-bottom-color: #337c78;
+    background: rgba(255,255,255,0.85);
+}
+
+.main-button {
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding: 15px;
+
+    border: none;
+
+    background: #337c78;
+    color: white;
+
+    font-size: 14px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.main-button:hover {
+    background: #286763;
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(51,124,120,0.25);
+}
+
+.error-message {
+    min-height: 24px;
+
+    margin-top: 12px;
+
+    color: #a34e3c;
+
+    font-size: 12px;
+}
+
+.login-bottom {
+    margin-top: 28px;
+
+    font-size: 10px;
+    letter-spacing: 4px;
+
+    color: #9a7b5e;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(49, 61, 56, 0.82),
+            rgba(49, 61, 56, 0.82)
+        ),
+        #496c68;
+}
+
+.hero-pattern {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.13;
+
+    background-image:
+        linear-gradient(
+            45deg,
+            transparent 45%,
+            #d2a56e 45%,
+            #d2a56e 55%,
+            transparent 55%
+        );
+
+    background-size: 55px 55px;
+
+    transform: rotate(10deg) scale(1.4);
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    border: 1px solid rgba(231, 193, 135, 0.28);
+
+    transform: rotate(45deg);
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border: 1px solid rgba(231, 193, 135, 0.18);
+
+    transform: rotate(45deg);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    color: #f5ead9;
+
+    padding: 30px;
+}
+
+.hero-small {
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: #d7bd92;
+}
+
+.hero-symbol {
+    margin: 30px 0 18px;
+
+    font-size: 30px;
+
+    color: #d7a36a;
+}
+
+.hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(48px, 9vw, 90px);
+
+    font-weight: normal;
+
+    line-height: 1.1;
+
+    letter-spacing: 3px;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: #d9a86d;
+
+    font-style: italic;
+}
+
+.hero-text {
+    margin-top: 30px;
+
+    font-size: 14px;
+
+    color: #e7dac7;
+}
+
+.scroll-guide {
+    margin-top: 80px;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: #c8b294;
+}
+
+.scroll-guide span {
+    display: block;
+
+    margin-top: 6px;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message-section {
+    padding: 120px 20px;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(177, 119, 73, 0.08),
+            transparent 25%
+        ),
+        #eadfcd;
+}
+
+.section-inner {
+    width: min(900px, 100%);
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.section-label {
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: #a66f4a;
+}
+
+.section-label.light {
+    color: #d8b27e;
+}
+
+.ornament.dark {
+    color: #b4784c;
+}
+
+.message-section h2 {
+    font-family: Georgia, serif;
+
+    font-size: 42px;
+
+    font-weight: normal;
+
+    color: #49372d;
+}
+
+.message-card {
+    position: relative;
+
+    max-width: 760px;
+
+    margin: 45px auto 0;
+
+    padding: 55px 65px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8f0e1,
+            #efe1c9
+        );
+
+    border: 1px solid rgba(112, 79, 51, 0.28);
+
+    box-shadow:
+        0 20px 50px rgba(70, 48, 31, 0.12);
+}
+
+.message-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 10px;
+
+    border: 1px solid rgba(156, 111, 70, 0.18);
+
+    pointer-events: none;
+}
+
+.message-card p {
+    position: relative;
+
+    font-size: 15px;
+
+    line-height: 2.3;
+
+    text-align: left;
+}
+
+.signature {
+    margin-top: 35px;
+
+    text-align: right;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    color: #9b6849;
+}
+
+.card-corner {
+    position: absolute;
+
+    width: 25px;
+    height: 25px;
+
+    border-color: #b98559;
+}
+
+.top-left {
+    top: 20px;
+    left: 20px;
+
+    border-top: 2px solid;
+    border-left: 2px solid;
+}
+
+.top-right {
+    top: 20px;
+    right: 20px;
+
+    border-top: 2px solid;
+    border-right: 2px solid;
+}
+
+.bottom-left {
+    bottom: 20px;
+    left: 20px;
+
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+}
+
+.bottom-right {
+    bottom: 20px;
+    right: 20px;
+
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+}
+
+
+/* =========================================================
+   TICKET INTRO
+========================================================= */
+
+.ticket-intro {
+    padding: 95px 20px;
+
+    text-align: center;
+
+    color: #f2e4ce;
+
+    background:
+        linear-gradient(
+            rgba(65, 67, 57, 0.95),
+            rgba(65, 67, 57, 0.95)
+        ),
+        #555846;
+}
+
+.ticket-intro h2 {
+    margin-top: 15px;
+
+    font-family: Georgia, serif;
+
+    font-size: 42px;
+
+    font-weight: normal;
+}
+
+.ticket-intro p {
+    margin-top: 20px;
+
+    color: #d8cdbb;
+
+    font-size: 14px;
+}
+
+.pattern-line {
+    margin-top: 35px;
+
+    color: #c49a66;
+
+    letter-spacing: 8px;
+}
+
+
+/* =========================================================
+   TICKETS
+========================================================= */
+
+.tickets-section {
+    padding: 100px 20px;
+
+    background: #e9ddca;
+}
+
+.tickets-container {
+    width: min(1050px, 100%);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+}
+
+.ticket-card {
+    position: relative;
+
+    padding: 35px;
+
+    min-height: 540px;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 40px rgba(66, 47, 32, 0.14);
+
+    transition: 0.3s;
+}
+
+.ticket-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 25px 50px rgba(66, 47, 32, 0.2);
+}
+
+.dinner-ticket {
+    background: #f4e7d1;
+
+    border: 1px solid #c68a59;
+}
+
+.cleaning-ticket {
+    background: #e2e9df;
+
+    border: 1px solid #73918a;
+}
+
+.ticket-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 13px;
+
+    border: 1px dashed rgba(80, 65, 52, 0.35);
+
+    pointer-events: none;
+}
+
+.ticket-header {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #80664f;
+}
+
+.cleaning-ticket .ticket-header {
+    color: #52736d;
+}
+
+.ticket-status {
+    font-size: 8px;
+
+    letter-spacing: 1px;
+}
+
+.ticket-symbol {
+    margin-top: 45px;
+
+    font-family: Georgia, serif;
+
+    font-size: 55px;
+
+    line-height: 1;
+
+    color: #ad714b;
+
+    opacity: 0.8;
+}
+
+.cleaning-ticket .ticket-symbol {
+    color: #4f8179;
+}
+
+.ticket-card h3 {
+    margin-top: 18px;
+
+    font-family: Georgia, "Yu Mincho", serif;
+
+    font-size: 28px;
+
+    font-weight: normal;
+
+    color: #4c392c;
+}
+
+.ticket-line {
+    width: 70px;
+
+    height: 1px;
+
+    margin: 18px auto;
+
+    background: #b67b53;
+}
+
+.cleaning-ticket .ticket-line {
+    background: #638b84;
+}
+
+.ticket-card p {
+    font-size: 12px;
+
+    line-height: 2;
+
+    color: #68584b;
+}
+
+.cleaning-ticket p {
+    color: #53645f;
+}
+
+.ticket-button {
+    position: relative;
+
+    margin-top: auto;
+
+    padding: 13px;
+
+    border: 1px solid #a96c47;
+
+    background: transparent;
+
+    color: #8d593b;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.ticket-button:hover {
+    background: #a96c47;
+
+    color: white;
+}
+
+.cleaning-ticket .ticket-button {
+    border-color: #527a73;
+
+    color: #527a73;
+}
+
+.cleaning-ticket .ticket-button:hover {
+    background: #527a73;
+
+    color: white;
+}
+
+.ticket-footer {
+    margin-top: 22px;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: #a88b70;
+}
+
+
+/* USED STATE */
+
+.ticket-card.used {
+    filter: grayscale(0.3);
+
+    opacity: 0.65;
+}
+
+.ticket-card.used .ticket-button {
+    pointer-events: none;
+
+    border-color: #888;
+
+    color: #777;
+
+    background: rgba(100,100,100,0.08);
+}
+
+.ticket-card.used .ticket-status {
+    color: #777;
+}
+
+.ticket-card.used .ticket-status::after {
+    content: "";
+}
+
+.ticket-card.used .ticket-symbol {
+    opacity: 0.4;
+}
+
+
+/* =========================================================
+   MASSAGE PASS
+========================================================= */
+
+.massage-section {
+    position: relative;
+
+    padding: 120px 20px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #315e5b,
+            #284c49
+        );
+
+    color: #f4eadb;
+}
+
+.massage-pattern {
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    right: -300px;
+    top: -150px;
+
+    border: 1px solid rgba(218, 179, 118, 0.2);
+
+    transform: rotate(45deg);
+}
+
+.massage-content {
+    width: min(700px, 100%);
+
+    margin: auto;
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+}
+
+.pass-card {
+    margin-top: 30px;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eee1cb,
+            #dfceb0
+        );
+
+    color: #4b392c;
+
+    box-shadow:
+        0 25px 60px rgba(20, 35, 33, 0.3);
+
+    position: relative;
+}
+
+.pass-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border: 1px dashed #9a7655;
+
+    pointer-events: none;
+}
+
+.pass-top,
+.pass-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #80674f;
+}
+
+.pass-middle {
+    padding: 50px 20px 45px;
+}
+
+.pass-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #ad774d;
+
+    border-radius: 50%;
+
+    font-family: Georgia, serif;
+
+    font-size: 21px;
+
+    color: #9b6847;
+}
+
+.pass-middle h2 {
+    margin-top: 25px;
+
+    font-family: Georgia, serif;
+
+    font-size: 38px;
+
+    font-weight: normal;
+}
+
+.pass-line {
+    width: 60px;
+
+    height: 1px;
+
+    margin: 18px auto;
+
+    background: #a97852;
+}
+
+.pass-middle p {
+    font-size: 14px;
+
+    line-height: 2;
+}
+
+.pass-note {
+    margin-top: 22px;
+
+    font-size: 11px !important;
+
+    color: #806b57;
+}
+
+
+/* =========================================================
+   ENDING
+========================================================= */
+
+.ending-section {
+    padding: 130px 20px;
+
+    text-align: center;
+
+    background: #dfd0b9;
+
+    color: #4d3a2e;
+}
+
+.ending-symbol {
+    font-size: 30px;
+
+    color: #ae754d;
+}
+
+.ending-small {
+    margin-top: 15px;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: #977154;
+}
+
+.ending-section h2 {
+    margin-top: 25px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(25px, 5vw, 42px);
+
+    font-weight: normal;
+}
+
+.ending-section > .ending-inner > p:not(.ending-small):not(.ending-sign) {
+    margin-top: 20px;
+
+    font-size: 14px;
+}
+
+.ending-decoration {
+    margin-top: 45px;
+
+    color: #a9764f;
+
+    letter-spacing: 10px;
+}
+
+.ending-sign {
+    margin-top: 35px;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    color: #8f654a;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.modal-background {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(34, 31, 26, 0.7);
+
+    backdrop-filter: blur(5px);
+}
+
+.modal-card {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(430px, 100%);
+
+    padding: 45px 30px;
+
+    background: #f3e7d3;
+
+    border: 1px solid #a87953;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.3);
+
+    text-align: center;
+}
+
+.modal-symbol {
+    color: #b4774e;
+
+    font-size: 25px;
+}
+
+.modal-card h2 {
+    margin-top: 12px;
+
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+
+    font-weight: normal;
+}
+
+.modal-card p {
+    margin-top: 15px;
+
+    font-size: 12px;
+
+    color: #756354;
+}
+
+.modal-buttons {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.modal-buttons button {
+    flex: 1;
+
+    padding: 12px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    transition: 0.3s;
+}
+
+.modal-cancel {
+    border: 1px solid #9c8976;
+
+    background: transparent;
+
+    color: #69594c;
+}
+
+.modal-cancel:hover {
+    background: #ded0bd;
+}
+
+.modal-confirm {
+    border: 1px solid #337c78;
+
+    background: #337c78;
+
+    color: white;
+}
+
+.modal-confirm:hover {
+    background: #286763;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .login-card {
+        padding: 40px 25px 30px;
+    }
+
+    .login-card h1 {
+        font-size: 31px;
+    }
+
+    .hero h1 {
+        font-size: 53px;
+    }
+
+    .hero-text {
+        font-size: 12px;
+    }
+
+    .message-section {
+        padding: 85px 18px;
+    }
+
+    .message-section h2 {
+        font-size: 34px;
+    }
+
+    .message-card {
+        padding: 40px 28px;
+    }
+
+    .message-card p {
+        font-size: 13px;
+        line-height: 2.1;
+    }
+
+    .ticket-intro {
+        padding: 75px 20px;
+    }
+
+    .ticket-intro h2 {
+        font-size: 34px;
+    }
+
+    .tickets-section {
+        padding: 70px 18px;
+    }
+
+    .tickets-container {
+        grid-template-columns: 1fr;
+    }
+
+    .ticket-card {
+        min-height: 510px;
+    }
+
+    .massage-section {
+        padding: 80px 18px;
+    }
+
+    .pass-middle h2 {
+        font-size: 30px;
+    }
+
+    .ending-section {
+        padding: 90px 20px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .login-screen::before,
+    .login-screen::after {
+        display: none;
+    }
+
+    .login-card {
+        width: 94%;
+
+        padding: 35px 20px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .message-card {
+        padding: 35px 22px;
+    }
+
+    .ticket-card {
+        padding: 28px 23px;
+    }
+
+    .pass-card {
+        padding: 25px 20px;
+    }
+}
